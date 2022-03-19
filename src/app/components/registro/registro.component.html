@@ -1,0 +1,77 @@
+<form class="row g-3 p-3" [formGroup]="formulario">
+    <div class="col-md-6">
+        <label for="inputNombre" class="form-label"> Nombre </label>
+        <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            formControlName="nombre"
+        />
+        <span class="form-text text-danger" *ngIf="validarCampos('nombre')">
+            Item no puede estar vacio
+        </span>
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputNombre" class="form-label"> Apellido </label>
+        <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            formControlName="apellido"
+        />
+        <span class="form-text text-danger" *ngIf="validarCampos('apellido')">
+            Item no puede estar vacio
+        </span>
+    </div>
+
+    <div class="col-md-12">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            formControlName="email"
+        />
+        <span class="form-text text-danger" *ngIf="validarCampos('email')">
+            No puede estar vacio y debe ser un email valido.
+        </span>
+    </div>
+
+    <div class="col-md-12">
+        <label for="inputPassword" class="form-label">Password</label>
+        <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            formControlName="password"
+        />
+        <span class="form-text text-danger" *ngIf="validarCampos('password')">
+            No puede estar vacio.
+        </span>
+    </div>
+
+    <div class="col-md-12">
+        <label for="inputPasswordConfirm" class="form-label"
+            >Confirmar Password</label
+        >
+        <input
+            type="password"
+            class="form-control"
+            id="inputPasswordConfirm"
+            formControlName="passwordConfirm"
+        />
+        <span
+            class="form-text text-danger"
+            *ngIf="validarCampos('passwordConfirm')"
+        >
+            No puede estar vacio.
+        </span>
+    </div>
+
+    <div class="col-md-12">
+        <button class="btn btn-outline-secondary" type="submit">
+            Registrarse
+        </button>
+    </div>
+</form>

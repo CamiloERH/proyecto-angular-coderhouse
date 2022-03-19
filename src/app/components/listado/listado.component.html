@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem" *ngFor="let movie of movies">
+    <img class="card-img-top" src="{{ movie.src }}" alt="Imagen pelicula" />
+    <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">
+            {{ movie.content }}
+        </p>
+        <button (click)="addMovie( movie.id )" class="btn btn-primary">Agregar</button>
+    </div>
+</div>
