@@ -8,6 +8,7 @@ import { ListadoComponent } from './components/listado/listado.component';
 import { InfoComponent } from './components/info/info.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

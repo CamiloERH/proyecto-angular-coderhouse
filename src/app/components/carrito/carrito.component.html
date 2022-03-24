@@ -1,4 +1,7 @@
 <ul class="list-group">
+    <li *ngIf="contenidoCarrito.length === 0">
+        No hay peliculas en el carrito.
+    </li>
     <li
         class="list-group-item d-flex justify-content-between align-items-center"
         *ngFor="let item of contenidoCarrito"

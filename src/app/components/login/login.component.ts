@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -13,6 +14,10 @@ export class LoginComponent {
         password: new FormControl('', [Validators.required]),
     });
 
+    constructor( private router: Router ) {
+
+    }
+
     validarCampos(campo: string) {
         return (
             this.formulario.controls[campo]?.errors &&
@@ -25,6 +30,7 @@ export class LoginComponent {
 			this.formulario.markAllAsTouched();
 			return;
 		}
+        this.router.navigate(['/listado']);
 		console.log( this.formulario.value );
 	}
 	
