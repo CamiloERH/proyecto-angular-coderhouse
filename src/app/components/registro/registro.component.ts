@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-registro',
@@ -7,14 +7,20 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent {
-	
-    formulario: FormGroup = new FormGroup({
-        nombre: new FormControl('', [Validators.required]),
-        apellido: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required]),
-        passwordConfirm: new FormControl('', [Validators.required]),
-    });
+   
+    formulario!: FormGroup;
+    
+    constructor(private fb: FormBuilder) {}
+
+    ngOnInit(): void {
+        this.formulario = this.fb.group({
+            nombre: ['', [Validators.required]],
+            apellido: ['', [Validators.required]],
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required]],
+            passwordConfirm: ['', [Validators.required]],
+        });
+    }
 
     validarCampos(campo: string) {
         return (
@@ -23,11 +29,11 @@ export class RegistroComponent {
         );
     }
 
-	submit() {
-		if (this.formulario.invalid) {
-			this.formulario.markAllAsTouched();
-			return;
-		}
-		console.log( this.formulario.value );
-	}
+    submit() {
+        if (this.formulario.invalid) {
+            this.formulario.markAllAsTouched();
+            return;
+        }
+        console.log(this.formulario.value);
+    }
 }

@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {
+    FormBuilder,
+    FormControl,
+    FormGroup,
+    Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,15 +12,16 @@ import { Router } from '@angular/router';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+    formulario!: FormGroup;
 
-    formulario: FormGroup = new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required]),
-    });
+    constructor(private fb: FormBuilder, private router: Router) {}
 
-    constructor( private router: Router ) {
-
+    ngOnInit(): void {
+        this.formulario = this.fb.group({
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required]],
+        });
     }
 
     validarCampos(campo: string) {
@@ -25,13 +31,12 @@ export class LoginComponent {
         );
     }
 
-	submit() {
-		if (this.formulario.invalid) {
-			this.formulario.markAllAsTouched();
-			return;
-		}
+    submit() {
+        if (this.formulario.invalid) {
+            this.formulario.markAllAsTouched();
+            return;
+        }
         this.router.navigate(['/listado']);
-		console.log( this.formulario.value );
-	}
-	
+        console.log(this.formulario.value);
+    }
 }

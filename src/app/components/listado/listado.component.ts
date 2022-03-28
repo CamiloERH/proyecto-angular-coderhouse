@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IMovie } from 'src/app/interfaces/movie.interface';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -8,13 +9,9 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class ListadoComponent {
 
-	get movies() {
-		return this.moviesService.movies;
-	}
+	@Input()
+	movies!: IMovie[];
 
-	constructor( private moviesService: MoviesService ) { }
+	constructor() { }
 
-	addMovie( index: number): void {
-		this.moviesService.addMovie( index );
-	}
 }

@@ -9,9 +9,9 @@ import { IMovie } from '../../interfaces/movie.interface';
 })
 export class CarritoComponent {
 
-	get contenidoCarrito(): IMovie[] {
-		return this.moviesService.carrito;
-	}
+	// get contenidoCarrito(): IMovie[] {
+	// 	return this.moviesService.carrito;
+	// }
 
     constructor(private moviesService: MoviesService) {}
 }

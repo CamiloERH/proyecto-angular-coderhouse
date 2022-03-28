@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './components/registro/registro.component';
@@ -7,8 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ListadoComponent } from './components/listado/listado.component';
 import { InfoComponent } from './components/info/info.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,15 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     ListadoComponent,
     InfoComponent,
-    CarritoComponent
+    CarritoComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
